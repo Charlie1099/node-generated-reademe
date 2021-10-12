@@ -9,7 +9,15 @@ const questions = [
     {
         type: "input",
         name: "title",
-        message: "Hi what is your Project title?"
+        message: "Hi what is your Project title? (Required)",
+        validate: titleInput => {
+            if (titleInput) {
+                return true;
+            } else {
+                console.log("Please enter the name of your project!");
+                return false;
+            }
+        }
     },
     {
         type: "input",
@@ -17,10 +25,11 @@ const questions = [
         message: "What is the Discription of your project"
     },
     {
-        type: "confirm",
+        type: "list",
         name: "tableOfContents",
         message: "Would you like to make a Table of Contents it would make it easy for users to find what they need (Optional)",
-        default: true
+        choices:  ["Installation", "Usage", "Contributing", "Test"]
+        
     },
     {
         type: "input",
@@ -37,7 +46,40 @@ const questions = [
         name: "credits",
         message: "Please list your collaborators, if any, with links to their GitHub profiles amd any third-party assets that you used"
     },
-
+    {
+        type: "list",
+        name: "license",
+        message: "What license would you like to add? (Required)",
+        choices: ["None", "MIT", "GNU GPLv3", "MPL 2.0"],
+        validate: licenseInput => {
+            if (licenseInput) {
+                return true;
+            } else {
+                console.log ("Please add a license!")
+                return false;
+            }
+        } 
+    },
+    {
+        type: "input",
+        name: "badges",
+        message: "Are there any badges that you would like to add? (Optional)",
+    },
+    {
+        type: "input",
+        name: "features",
+        message: "Does you projet have features that you would like to show?"
+    },
+    {
+        type: "input",
+        name: "contributing",
+        message: "do you want others to help with your project you can leave instructions on how"
+    },
+    {
+        type: "input",
+        name: "test",
+        message: "is there any test that you want to write for your project"
+    }
 
 ];
 

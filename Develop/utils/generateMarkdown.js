@@ -1,14 +1,41 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) { }
+function renderLicenseBadge(license) {
+  switch (license) {
+    case "MIT":
+      return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
+
+    case "GNU GPLv3":
+      return `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`
+
+    case "MPL 2.0":
+      return `[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)`
+  }
+
+}
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) { }
+function renderLicenseLink(license) {
+  switch (license) {
+    case "MIT":
+      return `[MIT](https://opensource.org/licenses/MIT)`
+
+    case "GNU GPLv3":
+      return `[GPL-3.0-or-later](https://opensource.org/licenses/GPL-3.0)`
+
+    case "MPL 2.0":
+      return `[MPL-2.0](https://opensource.org/licenses/MPL-2.0)`
+  }
+
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) { }
+function renderLicenseSection(license) {
+
+
+}
 
 
 
@@ -19,29 +46,30 @@ function generateMarkdown(userResponses, data) {
 
   if (userResponses.installation !== "") {
     tableOfContents +=
-      `* [Installation](#installation)`
+      `* [Installation](#Installation)`
   };
 
   if (userResponses.usage !== "") {
     tableOfContents +=
-      `* [Usage](#usage)`
+      `* [Usage](#Usage)`
+               
   };
 
   if (userResponses.contributing !== "") {
     tableOfContents +=
-      `* [Contributing](#contributing)`
+      `* [Contributing](#Contributing)`
   };
 
   if (userResponses.test !== "") {
     tableOfContents +=
-      `* [Test](#test)`
+      `* [Test](#est)`
   };
 
-  let draftReadMe = `# ${userResponses.title}`
+  let draftReadMe = `# ${userResponses.data}`
 
 
 
-    `# ${data.title}
+`#${data.title}
 
  # Description
  ${data.description}
@@ -66,7 +94,8 @@ function generateMarkdown(userResponses, data) {
 
   ## License
 
-  ${userResponses.license}
+   ${renderLicenseLink + renderLicenseBadge(userResponses.license)}
+   
   `
     let draftDev =
       `
