@@ -9,7 +9,7 @@ const questions = [
     {
         type: "input",
         name: "title",
-        message: "Hi what is your Project title? (Required)",
+        message: "Hi what is your Project title?",
         validate: titleInput => {
             if (titleInput) {
                 return true;
@@ -21,20 +21,36 @@ const questions = [
     },
     {
         type: "input",
-        name: "description",
-        message: "What is the Discription of your project"
+        name: "Description",
+        message: "What is the Discription of your project",
+        validate: descriptionInput => {
+            if (descriptionInput) {
+                return true;
+            } else {
+                console.log("Please enter the Discription of your project!");
+                return false;
+            }
+        }
     },
     {
-        type: "input",
+        type: "confirm",
         name: "tableOfContents",
-        message: "Would you like to make a Table of Contents it would make it easy for users to find what they need (Optional)",
-        choices:  ["Installation", "Usage", "Contributing", "Test"]
+        message: "Would you like to make a Table of Contents it would make it easy for users to find what they need",
+        default: true
         
     },
     {
         type: "input",
         name: "installation",
-        message: "What are the steps needed to install your project? Provide a step-by-step description of how to get the development running"
+        message: "What are the steps needed to install your project? Provide a step-by-step description of how to get the development running",
+        validate: installationInput => {
+            if (installationInput) {
+                return true;
+            } else {
+                console.log("Please enter the Installation process of your project!");
+                return false;
+            }
+        }
     },
     {
         type: "input",
@@ -60,11 +76,7 @@ const questions = [
             }
         } 
     },
-    {
-        type: "input",
-        name: "badges",
-        message: "Are there any badges that you would like to add? (Optional)",
-    },
+    
     {
         type: "input",
         name: "features",
@@ -82,7 +94,7 @@ const questions = [
     },
     {
         type: "input",
-        name: "Email",
+        name: "email",
         message: "What is your Email?",
         validate: (emailInput) => {
             if (emailInput) {

@@ -52,7 +52,7 @@ function generateMarkdown(userResponses) {
   if (userResponses.usage !== "") {
     tableOfContents +=
       `* [Usage](#Usage)`
-               
+
   };
 
   if (userResponses.contributing !== "") {
@@ -64,9 +64,9 @@ function generateMarkdown(userResponses) {
     tableOfContents +=
       `* [Test](#Test)`
   };
-console.log(userResponses.title)
-  let draftReadMe = ""  
-  
+  console.log(userResponses.title)
+  let draftReadMe = ""
+
 
 
 
@@ -89,7 +89,7 @@ console.log(userResponses.title)
   
   ## Tests
 
-  *Tests for application and how to run them:*
+  Tests for application and how to run them:
 
   ${userResponses.test}
 
@@ -97,36 +97,27 @@ console.log(userResponses.title)
 
    ${renderLicenseLink(userResponses.license) + renderLicenseBadge(userResponses.license)}
    
-  `
-    let draftDev =
-      `
-      ---
+  
 
-      ##Questions?
+  ##Questions?
 
-      ![Developer Profile Picture](${userResponses.avatar_url})
+  For any questions, please contact me at the information below:
 
-      For any questions, please contact me at the information below:
+  GitHub: ${userResponses.github}
+  
 
-      GitHub: [@${userResponses.login}](${userResponses.url})
-  `;
-
-    if (userResponses.email !== null) {
-      draftDev +=
-        `
-    Email: ${userResponses.email}
+  Email: ${userResponses.email}
     `
-    };
 
-    //add developer section to markdown
-    draftReadMe += draftDev;
 
-   
+
+
+
 
 
   };
- return draftReadMe;
- 
+  return draftReadMe;
+
 }
 
 module.exports = generateMarkdown;
