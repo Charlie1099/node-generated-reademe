@@ -40,7 +40,7 @@ function renderLicenseSection(license) {
 
 
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(userResponses, data) {
+function generateMarkdown(userResponses) {
   //generate tob if user selects it 
   let tableOfContents = `# Table of Contents`;
 
@@ -62,17 +62,18 @@ function generateMarkdown(userResponses, data) {
 
   if (userResponses.test !== "") {
     tableOfContents +=
-      `* [Test](#est)`
+      `* [Test](#Test)`
   };
+console.log(userResponses.title)
+  let draftReadMe = ""  
+  
 
-  let draftReadMe = `# ${userResponses.data}`
 
 
-
-`#${data.title}
+  draftReadMe += `#${userResponses.title}
 
  # Description
- ${data.description}
+ ${userResponses.description}
 `
   // add table of contents
   draftReadMe += tableOfContents
@@ -94,7 +95,7 @@ function generateMarkdown(userResponses, data) {
 
   ## License
 
-   ${renderLicenseLink + renderLicenseBadge(userResponses.license)}
+   ${renderLicenseLink(userResponses.license) + renderLicenseBadge(userResponses.license)}
    
   `
     let draftDev =
@@ -103,29 +104,29 @@ function generateMarkdown(userResponses, data) {
 
       ##Questions?
 
-      ![Developer Profile Picture](${userInfo.avatar_url})
+      ![Developer Profile Picture](${userResponses.avatar_url})
 
       For any questions, please contact me at the information below:
 
-      GitHub: [@${userInfo.login}](${userInfo.url})
+      GitHub: [@${userResponses.login}](${userResponses.url})
   `;
 
-    if (userInfo.email !== null) {
+    if (userResponses.email !== null) {
       draftDev +=
         `
-    Email: ${userInfo.email}
+    Email: ${userResponses.email}
     `
     };
 
     //add developer section to markdown
     draftReadMe += draftDev;
 
-    return draftReadMe;
+   
 
 
   };
-
-  return generateMarkdown
+ return draftReadMe;
+ 
 }
 
 module.exports = generateMarkdown;

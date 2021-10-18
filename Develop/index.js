@@ -25,7 +25,7 @@ const questions = [
         message: "What is the Discription of your project"
     },
     {
-        type: "list",
+        type: "input",
         name: "tableOfContents",
         message: "Would you like to make a Table of Contents it would make it easy for users to find what they need (Optional)",
         choices:  ["Installation", "Usage", "Contributing", "Test"]
@@ -79,6 +79,32 @@ const questions = [
         type: "input",
         name: "test",
         message: "is there any test that you want to write for your project"
+    },
+    {
+        type: "input",
+        name: "Email",
+        message: "What is your Email?",
+        validate: (emailInput) => {
+            if (emailInput) {
+                return true;
+            } else {
+                console.log("You need to enter a valid Email!")
+                return false;
+            }
+        }
+    },
+    {
+        type: "input",
+        name: "github",
+        message: "Enter your github username to link to the project",
+        validate: githubInput => {
+            if (githubInput) {
+                return true
+            } else {
+                console.log("You need to enter a valid github Username!")
+                return false;
+            }
+        }
     }
 
 ];
