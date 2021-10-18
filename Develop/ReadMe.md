@@ -1,4 +1,4 @@
-#drg
+#camerons readme
 
  # Description
  undefined
@@ -10,7 +10,7 @@
 
   Tests for application and how to run them:
 
-  sfs
+  no
 
   ## License
 
@@ -22,8 +22,8 @@
 
   For any questions, please contact me at the information below:
 
-  GitHub: adaw
+  GitHub: charlie1099
   
 
-  Email: awd
+  Email: cdcharlesworth@gmail.com
     
